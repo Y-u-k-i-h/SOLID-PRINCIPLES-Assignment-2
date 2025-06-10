@@ -17,6 +17,6 @@ class OfficeEmployees implements Employee2,Documents{
 class FieldEmployee2 implements Employee2 {
 
     public void work() {
-        System.out.println("Field Employee is working...");
+        System.out.println("Field Employee is working..");
     }
 }
