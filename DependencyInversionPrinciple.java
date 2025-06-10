@@ -57,4 +57,33 @@ public class DependencyInversionPrinciple {
             notificationSender.send(message);
         }
     }
+
+    // Demonstration method
+    public static void demonstrateDIP() {
+        System.out.println("=== DIP Demonstration ===");
+        
+        // Good example - using dependency injection
+        NotificationSender emailSender = new EmailNotification();
+        NotificationService emailService = new NotificationService(emailSender);
+        emailService.notify("Hello via Email!");
+        
+        // Easy to switch to different notification types
+        NotificationSender smsSender = new SMSNotification();
+        NotificationService smsService = new NotificationService(smsSender);
+        smsService.notify("Hello via SMS!");
+        
+        NotificationSender pushSender = new PushNotification();
+        NotificationService pushService = new NotificationService(pushSender);
+        pushService.notify("Hello via Push!");
+        
+        System.out.println("\n=== Bad Example (Tight Coupling) ===");
+        // Bad example - tightly coupled to email only
+        BadNotificationService badService = new BadNotificationService();
+        badService.notify("This can only be sent via email");
+        // No way to change notification type without modifying the class
+    }
+    
+    public static void main(String[] args) {
+        demonstrateDIP();
+    }
 }
