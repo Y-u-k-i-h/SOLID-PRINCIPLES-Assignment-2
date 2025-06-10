@@ -4,7 +4,7 @@ public interface Employee2 {
     void work();
 }
 
-class FieldEmployees implements Employee2,Documents{
+class OfficeEmployees implements Employee2,Documents{
 
     @Override
     public void work() {
