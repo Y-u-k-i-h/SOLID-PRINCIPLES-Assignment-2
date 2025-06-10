@@ -53,4 +53,31 @@ public class LiskovSubstitutionPrinciple {
             System.out.println("Swimming...");
         }
     }
+
+    // Demonstration method
+    public static void demonstrateLSP() {
+        System.out.println("=== LSP Demonstration ===");
+        
+        // This works - LSP is followed
+        Bird eagle = new Eagle();
+        Bird penguin = new Penguin();
+        
+        eagle.move();   // Output: Flying...
+        penguin.move(); // Output: Walking...
+        
+        // Both can be used interchangeably as Bird objects
+        Bird[] birds = {new Eagle(), new Penguin()};
+        for (Bird bird : birds) {
+            bird.move(); // Works without breaking
+        }
+        
+        System.out.println("\n=== Bad Example (would cause runtime exception) ===");
+        // This would break at runtime - LSP violation
+        // BadBird badPenguin = new BadPenguin();
+        // badPenguin.fly(); // Throws UnsupportedOperationException
+    }
+    
+    public static void main(String[] args) {
+        demonstrateLSP();
+    }
 }
