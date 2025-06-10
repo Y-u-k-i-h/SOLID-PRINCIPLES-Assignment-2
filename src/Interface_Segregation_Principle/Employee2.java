@@ -17,10 +17,9 @@ class FieldEmployees implements Employee2,Documents{
 
     }
 }
-
 class FieldEmployee2 implements Employee2 {
     @Override
     public void work() {
-        System.out.println("Field Employee is working.");
+        System.out.println("Field Employee is working");
     }
 }
